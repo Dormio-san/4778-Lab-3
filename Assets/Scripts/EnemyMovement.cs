@@ -5,12 +5,11 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform target;
-    Vector3 Force;
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 relativePos = (target.position + new Vector3(0, 0, 0)) - transform.position;
+        Vector3 relativePos = (target.position + new Vector3(0, 0, 1.5f)) - transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos);
 
         Quaternion current = transform.localRotation;
