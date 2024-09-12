@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // Speed at which the player moves.
+    private float moveSpeed = 6.5f;
 
-    // Update is called once per frame
-    void Update()
+    // Floats for the horizontal and vertical movement axes.
+    private float horizontalMovement;
+    private float verticalMovement;
+
+    private void Update()
     {
-        
+        horizontalMovement = Input.GetAxis("Horizontal");
+        verticalMovement = Input.GetAxis("Vertical");
+
+        // Move the player based on input and speed variable.
+        transform.Translate(new Vector2(horizontalMovement, verticalMovement) * moveSpeed * Time.deltaTime);
     }
 }
