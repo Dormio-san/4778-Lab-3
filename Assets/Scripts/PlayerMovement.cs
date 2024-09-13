@@ -15,6 +15,6 @@ public class PlayerMovement : MonoBehaviour
         verticalMovement = Input.GetAxis("Vertical");
 
         // Move the player based on input and speed variable.
-        transform.Translate(new Vector2(horizontalMovement, verticalMovement) * moveSpeed * Time.deltaTime);
+        transform.Translate(new Vector2(horizontalMovement, verticalMovement).normalized * moveSpeed * Time.deltaTime);
     }
 }
