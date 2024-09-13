@@ -47,8 +47,10 @@ public class EnemyMovement : MonoBehaviour
         // If the enemy is not too close to the player, get closer to the player.
         else if (distance > minDistance)
         {
+            float moveTowardSpeed = ((distance - minDistance) * moveSpeed) / 2.5f;
+
             // Move the enemy toward the player.
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveTowardSpeed * Time.deltaTime);
         }
 
         // Rotate the enemies around the player on the Z axis (Vector3.forward).
