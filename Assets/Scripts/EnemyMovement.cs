@@ -56,8 +56,11 @@ public class EnemyMovement : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveTowardSpeed * Time.deltaTime);
         }
 
+        // Adjust the enemy rotation speed so that it is quicker the further the enemy is from the player.
+        float distanceRotationSpeed = (distance - minDistance) + rotationSpeed;
+
         // Rotate the enemies around the player on the Z axis (Vector3.forward).
-        transform.RotateAround(player.position, Vector3.forward, rotationSpeed * Time.deltaTime);
+        transform.RotateAround(player.position, Vector3.forward, distanceRotationSpeed * Time.deltaTime);
 
         LookAtPlayer();
     }
