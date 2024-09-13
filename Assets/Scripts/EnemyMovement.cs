@@ -14,6 +14,9 @@ public class EnemyMovement : MonoBehaviour
     private float minLow = 6f;
     private float minHigh = 10f;
 
+    // Offset from minDistance that allows for enemies to rotate around the player at different distances from the player.
+    private float minDistanceOffset = 6.5f;
+
     // The speed at which the enemy moves.
     // Min and max provide a range for variability.
     private float moveSpeed;
@@ -45,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
         }
         
         // If the enemy is not too close to the player, get closer to the player.
-        else if (distance > minDistance)
+        else if (distance > minDistance + minDistanceOffset)
         {
             float moveTowardSpeed = ((distance - minDistance) * moveSpeed) / 2.5f;
 
