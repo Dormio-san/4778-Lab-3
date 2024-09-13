@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Speed at which the player moves.
-    private float moveSpeed = 6.5f;
+    private float moveSpeed = 9f;
 
     // Floats for the horizontal and vertical movement axes.
     private float horizontalMovement;
